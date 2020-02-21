@@ -1,6 +1,6 @@
-<h1>Add a new dose</h1>
+<h2 class="mt-4">Add a new dose</h2>
 <%= simple_form_for [cocktail, dose] do |f| %>
   <%= f.association :ingredient %>
   <%= f.input :description, label: 'Description' %>
-  <%= f.submit :submit, class: 'btn btn-primary' %>
+  <%= f.submit :submit, class: 'btn btn-primary mb-4' %>
 <% end %>

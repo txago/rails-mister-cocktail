@@ -23,3 +23,8 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$btn-font-family: $headers-font;
+$theme-colors: (
+  "primary":    $arsenic,
+  "info":    $mantis
+) !default;
