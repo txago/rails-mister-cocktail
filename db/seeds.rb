@@ -1,11 +1,15 @@
-Cocktail.create(name: 'mojito')
-Cocktail.create(name: 'gin tonic')
-Cocktail.create(name: 'negroni')
+require 'open-uri'
 
-Ingredient.create(name: 'lemon')
-Ingredient.create(name: 'ice')
-Ingredient.create(name: 'mint leaves')
+puts 'Destroy ingredients'
+Ingredient.destroy_all if Rails.env.development?
 
-Dose.create(description: 'a taste of mexico...', cocktail_id: '1', ingredient_id: '1')
-Dose.create(description: 'ooohh, fancy!', cocktail_id: '2', ingredient_id: '2')
-Dose.create(description: 'a classic!', cocktail_id: '3', ingredient_id: '3')
+puts 'Destroy Cocktails'
+Cocktail.destroy_all if Rails.env.development?
+
+puts 'Create ingredients'
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients = JSON.parse(open(url).read)
+ingredients['drinks'].each do |ingredient|
+  i = Ingredient.create(name: ingredient['strIngredient1'])
+  puts "create #{i.name}"
+end
