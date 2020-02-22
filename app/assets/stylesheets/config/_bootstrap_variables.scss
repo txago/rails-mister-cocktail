@@ -25,6 +25,7 @@ $border-radius-sm: 2px;
 // Override other variables below!
 $btn-font-family: $headers-font;
 $theme-colors: (
-  "primary":    $arsenic,
-  "info":    $mantis
+  "primary": $arsenic,
+  "secondary": $dark-purple,
+  "info": $mantis
 ) !default;
